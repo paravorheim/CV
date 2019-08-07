@@ -1,0 +1,531 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{black}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% get rid of symbols
+\renewcommand*{\addresssymbol}       {}
+\renewcommand*{\mobilephonesymbol}   {}
+\renewcommand*{\fixedphonesymbol}    {}
+\renewcommand*{\faxphonesymbol}      {}
+\renewcommand*{\emailsymbol}         {}
+\renewcommand*{\homepagesymbol}      {}
+\renewcommand*{\linkedinsocialsymbol}{}
+\renewcommand*{\twittersocialsymbol} {}
+\renewcommand*{\githubsocialsymbol}  {}
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage{textgreek}
+% \usepackage{multibbl}
+\usepackage[sorting=none, maxbibnames=99, giveninits=true, backend=bibtex]{biblatex}
+\defbibheading{pubs}{\subsection{Peer-Reviewed Publications}}
+\defbibheading{abs}{\subsection{Abstract Presentations}}
+\defbibheading{oral}{\subsection{Oral Presentations}}
+
+\addbibresource[label=pubs]{publications}
+\addbibresource[label=abs]{abstracts}
+\addbibresource[label=oral]{oralpres}
+
+
+
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvitem[0.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
+    }%
+}
+
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
+
+% \newcommand{\cvreference}[7]{%
+%     \textbf{#1}\newline% Name
+%     \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+%     \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+%     \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+%     \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+%     \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+%     \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
+\newcommand{\cvreference}[7]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\texttt{#6}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{#7}}
+
+% personal data
+\name{Paras}{Vora}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{426 E High St Apt 23}{Lexington, KY 40507}{}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1~(270)~315~8726}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{paras.vora@uky.edu}                               % optional, remove / comment the line if not wanted
+\homepage{www.parasvora.com}                         % optional, remove / comment the line if not wanted
+%\social[linkedin]{paras.vora}                        % optional, remove / comment the line if not wanted
+%\social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+%\social[github]{paravorheim@gmail.com}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{IMG_0761}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}
+    {\textbf{#1}}
+    {#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}
+    {\textbf{#1}}
+    {#1}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+% General Information, include certifications here
+\makecvtitle
+% \newbibliography{pubs}
+% \bibliographystyle{pubs}{plain}
+% \newbibliography{abs}
+% \bibliographystyle{abs}{plain}
+% \newbibliography{oral}
+% \bibliographystyle{oral}{plain}
+% Education, including undergrad, professional/grad, and continuing
+\section{Education}
+%   \subsection{Undergraduate}
+    \cventry{Aug. 2011--May 2015}{BS, Biomedical Engineering and Computer Science}{Washington University in St. Louis}{St. Louis, MO}{}{}
+%   \subsection{Professional}
+    \cventry{Jul. 2015--Exp. May 2020}{MD}{University of Kentucky College of Medicine}{Lexington, KY}{}{}  
+% arguments 3 to 6 can be left empty
+
+% Professional Experiences
+% Academic appointments
+% Hospital/Clinical Appointments
+% Consulting Activities
+
+%\section{Master thesis}
+%\cvitem{title}{\emph{Title}}
+%\cvitem{supervisors}{Supervisors}
+%\cvitem{description}{Short thesis abstract}
+
+
+% Teaching Activities
+
+% Advising Activities
+
+% Administrative Activities and University Service
+
+% Special Assignments
+
+% Honors and Awards
+\section{Honors \& Awards}
+  \cventry{April 2019}{University of Kentucky Global Ophthalmology | Dr. Eric Higgins}{Development and Innovation Award | \normalfont{"Real-Time Stereoscopic Slit Lamp Videography"}}{Lexington, KY}{}{}
+  \cventry{May 2018}{Markey Cancer Center Research Day | Dr. Romulo Albuquerque}{Best Poster Award | \normalfont{"Using Artificial Intelligence to Facilitate Eye Disease Detection"}}{Lexington, KY}{}{\textit{Clinical and Translational Science - Graduate Students Section}}
+  \cventry{Mar. 2017}{Annual Scientific Meeting}{Medical Student Travel Scholarship | \normalfont{Society of Interventional Radiology}}{Washington, DC}{}{}
+  
+\section{Research \& Intellectual Contributions}
+
+\subsection{Research Projects}
+%     \cventry{Jan. 2016--Jun. 2019}{University of Kentucky Department of Ophthalmology and Visual Sciences}{Advisor: Romulo Albuquerque, DDS, MD, PhD}{Lexington, KY}{}{Student Researcher through the NIH TL1 Clinical and Translational Research Grant
+%       \begin{itemize}
+%         \item Developing a noninvasive system to detect changes in choroidal blood flow seen in various pathologies
+% %		\begin{itemize}
+% %			\item Project Title: A Pilot Study to Assess the Validity and Efficacy of Retinal Video Processing Compared to Indocyanine Green Angiography
+% %			\item Project Number: 17-0633-P3K
+% %			\item Principal Investigators: 
+% %		\end{itemize}
+%         \item Studying the involvement of opioid receptor activity in ocular neuropathic pain related to dry eye syndrome
+%         \item Using machine learning techniques to facilitate eye disease detection
+%       \end{itemize}
+%       Research in Surgery Elective, Spring 2016
+%       \begin{itemize}
+%         \item Developed and assisted with immunohistochemistry experiments to investigate the mechanism of the corneal-trigeminal axis in ocular surface pain
+%       \end{itemize}
+%     }%
+    
+    % add the iwipe website: http://parasvora.com/iwipe/
+    
+    \cventry{Jun. 2017--Jun. 2019}{Advisor: Romulo Albuquerque, DDS, MD/PhD}{\normalfont{NIH TL1 Research Trainee}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Non-Contrast Retinal Video Processing to Assess Retinal and Choroidal Perfusion}}
+    
+    \cventry{Aug. 2017--Jun. 2018}{Advisor: Romulo Albuquerque, DDS, MD/PhD}{\normalfont{NIH TL1 Research Trainee}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Development of Dry Eye Syndrome and Corneal Sensitivity after Vitreoretinal Surgery}}
+    
+    \cventry{May 2016--Aug. 2016}{Advisors: Jennifer Silva, MD and Jonathan Silva, PhD}{\normalfont{Researcher}}{St. Louis, MO}{}{\textit{Washington University School of Medicine, Department of Pediatric Cardiology \newline Washington University in St. Louis, Department of Biomedical Engineering} \newline \textbf{Project: Augmented Reality Applications for Cardiac Catheterization Procedures}}%}
+    % \cventry{}{Departments of Biomedical Engineering and Pediatric Cardiology}{Advisors: Jennifer Silva, MD and Jonathan Silva, PhD}{\normalfont{\textit{May 2016--Jan. 2017}}}{}{Developed augmented reality applications for cardiac catheterization procedures, \newline{} testing these applications during live ablation cases at St. Louis Children's Hospital
+    %   \begin{itemize}
+    %     % \item \underline{Techniques}: Development using Microsoft Hololens, Unity Virtual Reality, C++, and C\#
+    %     \item For more information visit: \href{http://www.sentiar.com/}{http://www.sentiar.com/}
+    %   \end{itemize}}%
+    \cventry{Jan. 2016--Jun. 2016}{Advisor: Romulo Albuquerque, DDS, MD/PhD}{\normalfont{Student Researcher, Research in Surgery Elective}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Conditional Genetic Knock-out in Trigeminal Ganglia Following Corneal Nerve Injury}}
+    
+    \cventry{August 2013--May 2014}{Advisor: Deborah Veis (Novack), MD/PhD}{\normalfont{Student Researcher}}{St. Louis, MO}{Washington University School of Medicine}{\textit{Division of Bone and Mineral Diseases} \newline \textbf{Project: Effect of Low Dose Hydrogen Peroxide on Bone Turnover}}
+    
+    \cventry{May 2013--August 2013}{Advisor: Deborah Veis (Novack), MD/PhD}{\normalfont{Summer Undergraduate Research Fellow}}{St. Louis, MO}{Washington University School of Medicine}{\textit{Division of Bone and Mineral Diseases} \newline \textbf{Project: The Role of TGF-Beta in RANKL-Induced Osteoclastogenesis}}
+    
+    \cventry{Aug. 2012--May 2013}{Advisor: Deborah Veis (Novack), MD/PhD}{\normalfont{Student Researcher}}{St. Louis, MO}{Washington University School of Medicine}{\textit{Division of Bone and Mineral Diseases} \newline \textbf{Project: Effect of IAP Antagonists on Bone Turnover}}
+    
+    \cventry{May 2012--Aug. 2012}{Advisor: Uma Sankar, PhD}{\normalfont{Summer Research Fellow}}{Owensboro, KY}{University of Louisville}{\textbf{Project: Lentiviral Cloning of GFER in Cancer Cell Lines}}
+
+    % \cventry{}{Division of Bone and Mineral Diseases}{Advisor: Deborah Veis (Novack), MD/PhD}{\normalfont{\textit{Apr. 2011--May 2015}}}{}{Developed and assisted with experiments designed to explore bone and mineral diseases affected by the \newline{} alternative NF-\textkappa{}B metabolic pathway
+    % \begin{itemize}
+    %   \item \underline{Techniques}: Bone histomorphometry, uCT, laser capture microscopy, fluorescence microscopy, recombinant DNA cloning, RT-PCR, sub-cloning to expression vectors, western blotting, RNA extraction from osteoclasts and macrophages, RNA-Seq, murine bone marrow extractions
+    % \end{itemize}
+    % }%
+
+  \begin{refsection}[pubs]
+    \nocite{*}
+    \settoggle{bbx:url}{false}
+    \settoggle{bbx:doi}{false}
+    \settoggle{bbx:eprint}{false}
+    \printbibliography[heading=pubs]
+  \end{refsection}
+  \begin{refsection}[abs]
+    \nocite{*}
+    \settoggle{bbx:url}{false}
+    \settoggle{bbx:doi}{false}
+    \settoggle{bbx:eprint}{false}
+    \printbibliography[heading=abs]
+  \end{refsection}
+  \begin{refsection}[oral]
+    \nocite{*}
+    \settoggle{bbx:url}{false}
+    \settoggle{bbx:doi}{false}
+    \settoggle{bbx:eprint}{false}
+    \printbibliography[heading=oral]
+  \end{refsection}
+
+    \subsection{Research Certification}
+        \cventry{Jun. 2017--Present}{GCP for Clinical Trials Involving Medical Devices, Biomedical Investigators and Key Personnel}{University of Kentucky Collaborative Institutional Training Initiative}{}{}{}
+
+\section{Funding}
+\cventry{}{"Novel Application of Eulerian Video Magnification for Assessment of Choroidal Perfusion"}{NIH TL1 Predoctoral Clinical Research Training Fellowship}{\normalfont{\textit{Jun. 2017--Jun. 2018}}}{}{} %5TL1TR1997-2
+\cventry{}{"Retinal Video Processing for Non-Contrast Assessment of Retinal and Choroidal Perfusion"}{UK Center for Clinical and Translational Science Small Grant}{\normalfont{\textit{Oct. 2017--Oct. 2018}}}{}{}
+\cventry{}{Howard Hughes Medical Institute - "Role of TGF-Beta in RANKL-Induced Osteoclastogenesis"}{Washington University Summer Undergraduate Research Fellowship}{\normalfont{\textit{May 2013--Aug. 2013}}}{}{}
+
+\section{Patents}
+\cvline{Application}{"System and Method for Assessment of Retinal and Choroidal Blood Flow Noninvasively Using Color Amplification," Provisional filed November 30, 2017, Non-Provisional filed November 30, 2018}
+
+% Consulting Activities
+\section{Consulting Activities}
+  \cventry{Oct 2017--Present}{Co-Founder}{Igneous, LLC}{Lexington, KY}{}{Providing technical expertise for patent-pending software algorithm to assess tissue perfusion}
+  \cventry{Aug. 2016--Jan. 2017}{Consultant}{SentiAR, Inc}{St. Louis, MO}{}{Developed and tested augmented reality applications for cardiac catheterization procedures at St. Louis Children's Hospital}
+
+
+% Professional Activities, Public Service, & Professional Development
+\section{Professional Activities, Public Service \& Professional Development}
+
+  \subsection{Memberships}
+    \cvlanguage{Association for Research in Vision and Ophthalmology}{Member}{2017--Present}
+    \cvlanguage{American Medical Association}{Member and Delegate}{2015--Present}
+    \cvlanguage{Lexington Medical Society}{Member}{2015--Present}
+    % \cventry{2017--Present}{Member}{Association for Research in Vision and Ophthalmology}{}{}{}
+    % \cventry{2016--2017}{Member}{Society of Interventional Radiology}{}{}{}
+    % \cventry{2015--Present}{Member}{American Medical Association}{}{}{}
+    % \vspace{-18pt}
+    % \cventry{2016}{Delegate}{}{}{}{}
+    % \cventry{2015--Present}{Member}{Lexington Medical Society}{}{}{}
+
+  \subsection{Leadership \& Service}
+	\cventry{May 2019-- Present}{Volunteer Coordinator}{Ophthalmology Interest Group Executive Board}{Lexington, KY}{}{Managed medical student volunteers, attendings, and residents at the Salvation Army Ophthalmology Clinic.
+    % \begin{itemize}
+    %   \item Formed a free ophthalmology clinic at the Lexington Salvation Army to serve indigent women and children. Run by ophthalmology residents and medical students
+    %   \item Organizes informational meetings
+    % \end{itemize}
+    }
+    % \vspace{-16pt}
+    \cventry{May 2017-- Jun. 2018}{President}{Ophthalmology Interest Group Executive Board}{Lexington, KY}{}{Formed a free student-run ophthalmology clinic at the Lexington Salvation Army. Featured articles: \begin{itemize}
+        \item UK Healthcare Blog: \href{https://1n.pm/Do7GF}{https://1n.pm/Do7GF}
+        \item Becker's ASC Review: \href{https://1n.pm/vB5qi}{https://1n.pm/vB5qi}
+        \item UKNow: \href{https://1n.pm/4b21z}{https://1n.pm/4b21z}
+        \item New Frontier Chronicle: \href{https://1n.pm/aptG5}{https://1n.pm/aptG5}
+    \end{itemize} 
+    % \begin{itemize}
+    %   \item Formed a free ophthalmology clinic at the Lexington Salvation Army to serve indigent women and children. Run by ophthalmology residents and medical students
+    %   \item Organizes informational meetings
+    % \end{itemize}
+    }
+    % \vspace{-16pt}
+    \cventry{May 2016--May 2017}{Vice President}{Ophthalmology Interest Group Executive Board}{Lexington, KY}{}{Organized informational career and specialty meetings with various ophthalmologists
+    % \begin{itemize}
+    %   \item Organized informational career and specialty meetings with various ophthalmologists
+    %   \item Organized annual ENT-Ophthalmology combined workshop instructing students about each specialty
+    % \end{itemize}
+    }
+    % \vspace{-16pt}
+    % \cventry{2015--2016}{Member}{}{}{}{}
+     \cventry{May 2016--May 2018}{Secretary}{Cardiology \& CT Interest Group Executive Board}{Lexington, KY}{}{Recorded meeting minutes and developed a research project database for medical students}
+    % \begin{itemize}
+    %   \item Works with carious physicians in the Department of Cardiology, Department of Vascular Surgery, and Department of Cardiothoracic Surgery
+    %   \item Developed research project database for medical students
+    %   \item Recorded meeting minutes
+    % \end{itemize}
+    % }
+    \cventry{May 2016--May 2017}{Technology Officer}{Ultrasound Interest Group Executive Board}{Lexington, KY}{}{Maintained the website, and assisted in writing the "Case of the Month"
+    % \begin{itemize}
+    %   \item Maintained and updated the website
+    %   \item Assisted in writing the "Case of the Month"
+    % \end{itemize}
+    }
+    \cventry{Jan. 2016--Present}{Volunteer}{Salvation Army Student Run Clinic}{Lexington, KY}{}{Helping provide free medical care for Lexington's indigent populations}
+    
+    \cventry{Jun. 2016--Jun. 2017}{Technology Officer}{Salvation Army Student Run Clinic}{Lexington, KY}{}{Maintained and improved the clinic website, upgraded computers and software to improve patient documentation
+    % \begin{itemize}
+    %   \item Maintained and improved clinic website
+    %   \item Assisted officers with graphic design needs
+    %   \item Upgraded computers and software for notetaking
+    %   \item Created reports to develop new insight on patient populations
+    %   \item Developed scheduling tool to increase accessibility for patients
+    % \end{itemize}
+    }
+    \cventry{Apr. 2017, Apr. 2018}{Volunteer, Photographer}{Castlefest Ultrasound Conference}{Lexington, KY}{}{Photographer for the event. Also served as a live model for attendees to practice ultrasound skills}
+    % \cventry{Apr. 2017}{Volunteer}{Castlefest Ultrasound Conference}{Lexington, KY}{}{Served as a live model for attendees to practice ultrasound skills}
+    % \subsection{Washington University in St. Louis}
+    % \cventry{Oct. 2014--May 2015}{Volunteer}{Pulmonary and Critical Care Unit | \normalfont{Barnes Jewish Medical Center}}{}{}{}
+    \cventry{May 2013--May 2015}{2013-2014: Co-Chair; 2014-2015: Communications Chair}{Relay For Life Executive Steering Committee}{St. Louis, MO}{}{Planned and implemented the annual Relay For Life event on Washington University's campus, helping raise over \$600,000 to support cancer research, treatment, and awareness}
+    % % \begin{itemize}
+    % %   \item {Planned and implemented the annual Relay For Life event on Washington University's campus, which raised over \$200,000 each year to support cancer research, treatment, and awareness.}
+    %     % \item {Organized and motivated the steering committee, and oversaw weekly executive committee meetings.}
+    %     % \item {Provided warm meals and emotional support weekly for patients and families staying at the St. Louis Hope Lodge, a zero-cost housing establishment run by the American Cancer Society.}
+    % % \end{itemize}
+    % }
+    % \vspace{-15pt}
+    % \cventry{May 2014--May 2015}{Communications Chair}{}{}{}{Worked closely with the university administration to coordinate PR campaigns around campus
+    % \begin{itemize}
+    %   \item insert here
+    % \end{itemize}
+    % }
+
+\section{Teaching Experience}
+  \cventry{Feb. 2017--May 2017}{University of Kentucky College of Medicine}{Mentor, Neuroscience Course}{Lexington, KY}{}{Held weekly one-on-one meetings in the Neuroscience course attended by all first year medical students}
+  \cventry{Aug. 2014--Dec. 2014}{Washington University Department of Biomedical Engineering}{Teaching Assistant, Bioengineering Thermodynamics Course}{St. Louis, MO}{}{Facilitated examination review sessions, graded problem sets and exams, and held weekly office hours}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+% \nocite{pubs}{*}
+% \nocite{abs}{*}
+% \nocite{oral}{*}
+% \bibliographystyle{plain}
+% \renewcommand{\refname}{Peer-Reviewed Publications}
+% \bibliography{pubs}{publications}{Peer-Reviewed Publications}
+% \bibliography{abs}{abstracts}{Abstract Presentations}
+% \bibliography{oral}{oralpres}{\subsection*{Oral Presentations}}
+
+
+                      % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+% \section{Abstract Presentations}
+  % \cventry{}{}{Markey Cancer Center Research Day | \normalfont{University of Kentucky}}{\normalfont{\textit{May 2018}}}{}{\vspace{-11pt}\textit{Using Artificial Intelligence to Facilitate Eye Disease Detection}}
+  % \cventry{}{}{Association for Research in Vision and Ophthalmology Conference}{\normalfont{\textit{May 2018}}}{}{\vspace{-11pt}\textit{Visualizing Retinal and Choroidal Blood Flow Noninvasively}}
+  % \cventry{}{}{Association for Research in Vision and Ophthalmology Conference}{\normalfont{\textit{May 2018}}}{}{\vspace{-11pt}\textit{Peripheral Latent Sensitization Masks Chronic Ocular Pain}}
+  % \cventry{}{}{Association for Clinical and Translational Science Conference}{\normalfont{\textit{Apr. 2018}}}{}{\vspace{-11pt}\textit{Optimizing a Technique for Visualizing Retinal and Choroidal Blood Flow Noninvasively}}
+  % \cventry{}{}{CCTS Spring Conference | \normalfont{University of Kentucky}}{\normalfont{\textit{Apr. 2018}}}{}{\vspace{-11pt}\textit{Development of Dry Eye Symptoms and Corneal Sensitivity after Ocular Surgeries}}
+  % \cventry{}{}{CCTS Spring Conference | \normalfont{University of Kentucky}}{\normalfont{\textit{Apr. 2017}}}{}{\vspace{-11pt}\textit{Eulerian Video Magnification: A Novel Application to Assess Choroidal Perfusion}}
+  % \cventry{}{}{Undergraduate Research Symposium | \normalfont{Washington University in St. Louis}}{\normalfont{\textit{Oct. 2013}}}{}{\vspace{-11pt}\textit{Elucidating the Interaction between TGF-$\beta$ and Alternative NF-$\kappa$B in the Regulation of RANKL-Induced Osteoclastogenesis}}
+
+  % \cventry{}{}{CCTS Spring Conference | \normalfont{University of Kentucky}}{\normalfont{\textit{Apr. 2018}}}{}{\vspace{-11pt}\textit{Visualizing Retinal Blood Flow Noninvasively}}
+
+\section{Other Creative Activity}
+\cventry{}{University of Kentucky Department of Computer Science}{Machine Learning Final Project}{\normalfont{\textit{2017--2018}}}{}{For the Special Topics in Artificial Intelligence course. Implemented an active-learning based software tool in for training a machine learning model to grade diabetic retinopathy from fundus images}
+\cventry{}{Washington University Department of Biomedical Engineering}{Senior Design Project}{\normalfont{\textit{2014--2015}}}{}{Developed and presented software to evaluate reading patterns via eye-tracking hardware. View the final report: \href{http://goo.gl/1Il2Tm}{http://goo.gl/1Il2Tm}}
+\cventry{}{Washington University in St. Louis}{Relay For Life Event Check-In Page}{\normalfont{\textit{2014--2015}}}{}{Final creative project for Rapid Prototyping course, using Javascript, jQuery, PHP, MySQL, and Bootstrap
+\begin{itemize}
+  \item Project page: \href{http://parasvora.com/relay-checkin/}{http://parasvora.com/relay-checkin/}
+  \item Currently being used to streamline registration and check-in at multiple large events
+\end{itemize}
+}
+
+
+\section{Interests}
+\cvline{Travel Photography}{View my photos at \href{https://goo.gl/photos/Xfr3W8DyZ1yfCSRSA}{https://goo.gl/photos/Xfr3W8DyZ1yfCSRSA}}
+\cvline{Other Interests}{Tennis, coffee, computers/current technology, microelectronics}
+% \section{Experience}
+% \subsection{Vocational}
+% \cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
+% Detailed achievements:%
+% \begin{itemize}%
+% \item Achievement 1;
+% \item Achievement 2, with sub-achievements:
+%   \begin{itemize}%
+%   \item Sub-achievement (a);
+%   \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
+%     \begin{itemize}
+%     \item Sub-sub-achievement i;
+%     \item Sub-sub-achievement ii;
+%     \item Sub-sub-achievement iii;
+%     \end{itemize}
+%   \item Sub-achievement (c);
+%   \end{itemize}
+% \item Achievement 3.
+% \end{itemize}}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
+% \subsection{Miscellaneous}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+% \section{Languages}
+% \cvitemwithcomment{Language 1}{Skill level}{Comment}
+% \cvitemwithcomment{Language 2}{Skill level}{Comment}
+% \cvitemwithcomment{Language 3}{Skill level}{Comment}
+
+% \section{Computer skills}
+% \cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+% \section{Interests}
+% \cvitem{hobby 1}{Description}
+% \cvitem{hobby 2}{Description}
+% \cvitem{hobby 3}{Description}
+
+% \section{Extra 1}
+% \cvlistitem{Item 1}
+% \cvlistitem{Item 2}
+% \cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+% \section{Extra 2}
+% \cvlistdoubleitem{Item 1}{Item 4}
+% \cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+% \cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+% \section{References}
+
+% \subsection{set in separate rows}
+
+% \cvdoublecolumn{\cvreference{Romulo Albuquerque}
+%     {Department of Ophthalmology}
+%     {University of Kentucky}
+%     {Lexington, KY}
+%     {}
+%     {rjalbu2@uky.edu}
+%     {859-559-7610}%
+%     }
+%     {\cvreference{Jonathan Silva}
+%     {Department of Biomedical Engineering}
+%     {Washington University}
+%     {Saint Louis, MO}
+%     {}
+%     {jonsilva@wustl.edu}
+%     {314-935-8837}%
+%     }
+
+% \cvdoublecolumn{\cvreference{Jennifer Silva}
+%     {Division of Pediatric Cardiology}
+%     {Washington University School of Medicine}
+%     {Saint Louis, MO}
+%     {}
+%     {silva\_j@kids.wustl.edu}
+%     {305-389-9345}%
+%     }
+%     {\cvreference{Deborah Novack}
+%     {Division of Bone and Mineral Disease}
+%     {Washington University School of Medicine}
+%     {Saint Louis, MO}
+%     {}
+%     {novack@wustl.edu}
+%     {314-454-8472}
+%     }
+% \subsection{set in one row only (like your example)}
+
+% \cvdoublecolumn{\cvreference{Nicolai Reshetikhin}
+%     {Department of Mathematics}
+%     {University of California}
+%     {Berkeley, CA 94720-3840}
+%     {}
+%     {reshetik@math.berkeley.edu}
+%     {510-643-6234}\\[1em]
+%     \cvreference{Roman Bezrukavnikov}
+%     {Department of Mathematics}
+%     {Massachusetts Institute of Technology}
+%     {77 Massachusetts Avenue}
+%     {Cambridge, MA 02139}
+%     {bezrukav@math.mit.edu}
+%     {617-253-2684}
+%     }
+%     {\cvreference{Mikhail Khovanov}
+%     {Department of Mathematics}
+%     {Columbia University}
+%     {990 Broadway}
+%     {New York, NY 10027}
+%     {khovanov@columbia.edu}
+%     {212-854-4186}\\[1em]
+%     \cvreference{Tom Braden}
+%     {Department of Mathematics}
+%     {University of Massachusetts}
+%     {Amherst, MA 94720-3840}
+%     {}
+%     {braden@math.umass.edu}
+%     {413-545-1732}
+%     }
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+% \recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+% \date{January 01, 1984}
+% \opening{Dear Sir or Madam,}
+% \closing{Yours faithfully,}
+% \enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+% \makelettertitle
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+% Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+% Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+% Albert Einstein discovered that $e=mc^2$ in 1905.
+
+% \[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+% \makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.
