@@ -10,7 +10,16 @@
 
 % moderncv themes
 \moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
-\moderncvcolor{black}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+\moderncvcolor{black}    
+% color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+
+% to get 'dark mode'
+% \definecolor{color0}{rgb}{0.95,0.95,0.95}% near white
+% \definecolor{color1}{rgb}{0.95,0.95,0.95}% near white
+% \definecolor{color2}{rgb}{0.95,0.95,0.95}% near white
+% \usepackage{pagecolor}
+% \pagecolor{black}
+
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -36,6 +45,7 @@
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 \usepackage{textgreek}
 % \usepackage{multibbl}
+
 \usepackage[sorting=none, maxbibnames=99, giveninits=true, backend=bibtex]{biblatex}
 \defbibheading{pubs}{\subsection{Peer-Reviewed Publications}}
 \defbibheading{abs}{\subsection{Abstract Presentations}}
@@ -82,8 +92,12 @@
 % personal data
 \name{Paras}{Vora}
 % \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
-\address{426 E High St Apt 23}{Lexington, KY 40507}{}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
-\phone[mobile]{+1~(270)~315~8726}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+
+% \address{550 Jefferson St}{Lexington, KY 40508}{}
+% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+
+%\phone[mobile]{+1~(270)~315~8726}                   
+% optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
 %\phone[fixed]{+2~(345)~678~901}
 %\phone[fax]{+3~(456)~789~012}
 \email{paras.vora@uky.edu}                               % optional, remove / comment the line if not wanted
@@ -133,7 +147,7 @@
 %   \subsection{Undergraduate}
     \cventry{Aug. 2011--May 2015}{BS, Biomedical Engineering and Computer Science}{Washington University in St. Louis}{St. Louis, MO}{}{}
 %   \subsection{Professional}
-    \cventry{Jul. 2015--Exp. May 2020}{MD}{University of Kentucky College of Medicine}{Lexington, KY}{}{}  
+    \cventry{Jul. 2015--May 2020}{MD}{University of Kentucky College of Medicine}{Lexington, KY}{}{}  
     \cventry{Exp. Jul. 2020--Jul. 2021}{Internship}{University of Kentucky Department of Internal Medicine}{Lexington, KY}{}{}  
     \cventry{Jul. 2021--Exp. Jul. 2024}{Residency}{University of Kentucky Department of Ophthalmology and Visual Sciences}{Lexington, KY}{}{}  
 % arguments 3 to 6 can be left empty
@@ -159,10 +173,11 @@
 
 % Honors and Awards
 \section{Honors \& Awards}
+  \cventry{April 2020}{ARVO 2020 | Dr. Eric Higgins}{Travel Grant}{Baltimore, MD}{}{}
   \cventry{April 2019}{University of Kentucky Global Ophthalmology | Dr. Eric Higgins}{Development and Innovation Award | \normalfont{"Real-Time Stereoscopic Slit Lamp Videography"}}{Lexington, KY}{}{}
   \cventry{May 2018}{Markey Cancer Center Research Day | Dr. Romulo Albuquerque}{\href{https://web.archive.org/web/20180515083840/https://uknow.uky.edu/uk-healthcare/students-postdocs-and-faculty-present-latest-findings-markey-research-day}{Best Poster Award} | \normalfont{"Using Artificial Intelligence to Facilitate Eye Disease Detection"}}{Lexington, KY}{}{\textit{Clinical and Translational Science - Graduate Students Section}}
   \cventry{Apr. 2017}{Salvation Army Clinic}{Outstanding Leadership \& Community Service Award | \normalfont{University of Kentucky}}{Lexington, KY}{}{}
-  \cventry{Mar. 2017}{Annual Scientific Meeting}{Medical Student Travel Scholarship | \normalfont{Society of Interventional Radiology}}{Washington, DC}{}{}
+%   \cventry{Mar. 2017}{Annual Scientific Meeting}{Medical Student Travel Scholarship | \normalfont{Society of Interventional Radiology}}{Washington, DC}{}{} \normalfont{"Inexpensive Deep Learning for Semantic Vessel and Lesion Segmentation in Diabetic Retinopathy"}
   
 \section{Research \& Intellectual Contributions}
 \subsection{Research Projects}
@@ -186,7 +201,7 @@
     % add the iwipe website: http://parasvora.com/iwipe/
     \cventry{Dec. 2019--Present}{Advisor: Eric Higgins, MD}{\normalfont{Student Researcher}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Semantic Vessel and Lesion Segmentation in Diabetic Retinopathy}}
     
-    \cventry{Jul. 2019--Present}{Advisor: Eric Higgins, MD}{\normalfont{Student Researcher}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Low-Cost Nonmydriatic Fundus Camera - A 2019 Update}}
+    % \cventry{Jul. 2019--Present}{Advisor: Eric Higgins, MD}{\normalfont{Student Researcher}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Low-Cost Nonmydriatic Fundus Camera - A 2019 Update}}
     
     \cventry{Apr. 2019--Present}{Advisor: Eric Higgins, MD}{\normalfont{Student Researcher}}{Lexington, KY}{University of Kentucky}{\textit{Department of Ophthalmology and Visual Sciences} \newline \textbf{Project: Teaching Ophthalmology in 3D/VR}}
     
@@ -257,7 +272,7 @@
 % Consulting Activities
 \section{Consulting Activities}
   \cventry{Oct 2017--Present}{Co-Founder}{Igneous, LLC}{Lexington, KY}{}{Providing technical expertise for patent-pending software algorithm to assess tissue perfusion}
-  \cventry{Aug. 2016--Jan. 2017}{Consultant}{SentiAR, Inc}{St. Louis, MO}{}{Developed and tested augmented reality applications for cardiac catheterization procedures at St. Louis Children's Hospital}
+%   \cventry{Aug. 2016--Jan. 2017}{Consultant}{SentiAR, Inc}{St. Louis, MO}{}{Developed and tested augmented reality applications for cardiac catheterization procedures at St. Louis Children's Hospital}
 
 
 % Professional Activities, Public Service, & Professional Development
@@ -265,7 +280,7 @@
 
   \subsection{Memberships}
     \cvlanguage{Association for Research in Vision and Ophthalmology}{Member}{2017--Present}
-    \cvlanguage{American Medical Association}{Member and Delegate}{2015--Present}
+    \cvlanguage{American Medical Association}{Member and Former Delegate}{2015--Present}
     \cvlanguage{Lexington Medical Society}{Member}{2015--Present}
     % \cventry{2017--Present}{Member}{Association for Research in Vision and Ophthalmology}{}{}{}
     % \cventry{2016--2017}{Member}{Society of Interventional Radiology}{}{}{}
@@ -275,7 +290,7 @@
     % \cventry{2015--Present}{Member}{Lexington Medical Society}{}{}{}
 
   \subsection{Leadership \& Service}
-	\cventry{May 2019-- Present}{Volunteer Coordinator}{Ophthalmology Interest Group Executive Board}{Lexington, KY}{}{Managed medical student volunteers, attendings, and residents at the Salvation Army Ophthalmology Clinic.
+	\cventry{May 2019-- May 2020}{Volunteer Coordinator}{Ophthalmology Interest Group Executive Board}{Lexington, KY}{}{Managed medical student volunteers, attendings, and residents at the Salvation Army Ophthalmology Clinic.
     % \begin{itemize}
     %   \item Formed a free ophthalmology clinic at the Lexington Salvation Army to serve indigent women and children. Run by ophthalmology residents and medical students
     %   \item Organizes informational meetings
@@ -302,19 +317,19 @@
     }
     % \vspace{-16pt}
     % \cventry{2015--2016}{Member}{}{}{}{}
-     \cventry{May 2016--May 2018}{Secretary}{Cardiology \& CT Interest Group Executive Board}{Lexington, KY}{}{Recorded meeting minutes and developed a research project database for medical students}
+    %  \cventry{May 2016--May 2018}{Secretary}{Cardiology \& CT Interest Group Executive Board}{Lexington, KY}{}{Recorded meeting minutes and developed a research project database for medical students}
     % \begin{itemize}
     %   \item Works with carious physicians in the Department of Cardiology, Department of Vascular Surgery, and Department of Cardiothoracic Surgery
     %   \item Developed research project database for medical students
     %   \item Recorded meeting minutes
     % \end{itemize}
     % }
-    \cventry{May 2016--May 2017}{Technology Officer}{Ultrasound Interest Group Executive Board}{Lexington, KY}{}{Maintained the website, and assisted in writing the "Case of the Month"
-    % \begin{itemize}
-    %   \item Maintained and updated the website
-    %   \item Assisted in writing the "Case of the Month"
-    % \end{itemize}
-    }
+    % \cventry{May 2016--May 2017}{Technology Officer}{Ultrasound Interest Group Executive Board}{Lexington, KY}{}{Maintained the website, and assisted in writing the "Case of the Month"
+    % % \begin{itemize}
+    % %   \item Maintained and updated the website
+    % %   \item Assisted in writing the "Case of the Month"
+    % % \end{itemize}
+    % }
     \cventry{Jan. 2016--Present}{Volunteer}{Salvation Army Student Run Clinic}{Lexington, KY}{}{Helping provide free medical care for Lexington's indigent populations}
     
     \cventry{Jun. 2016--Jun. 2017}{Technology Officer}{Salvation Army Student Run Clinic}{Lexington, KY}{}{Maintained and improved the clinic website, upgraded computers and software to improve patient documentation
@@ -326,7 +341,7 @@
     %   \item Developed scheduling tool to increase accessibility for patients
     % \end{itemize}
     }
-    \cventry{Apr. 2017, Apr. 2018}{Volunteer, Photographer}{Castlefest Ultrasound Conference}{Lexington, KY}{}{Photographer for the event. Also served as a live model for attendees to practice ultrasound skills}
+    % \cventry{Apr. 2017, Apr. 2018}{Volunteer, Photographer}{Castlefest Ultrasound Conference}{Lexington, KY}{}{Photographer for the event. Also served as a live model for attendees to practice ultrasound skills}
     % \cventry{Apr. 2017}{Volunteer}{Castlefest Ultrasound Conference}{Lexington, KY}{}{Served as a live model for attendees to practice ultrasound skills}
     % \subsection{Washington University in St. Louis}
     % \cventry{Oct. 2014--May 2015}{Volunteer}{Pulmonary and Critical Care Unit | \normalfont{Barnes Jewish Medical Center}}{}{}{}
@@ -346,7 +361,7 @@
 
 \section{Teaching Experience}
   \cventry{Feb. 2017--May 2017}{University of Kentucky College of Medicine}{Mentor, Neuroscience Course}{Lexington, KY}{}{Held weekly one-on-one meetings in the Neuroscience course attended by all first year medical students}
-  \cventry{Aug. 2014--Dec. 2014}{Washington University Department of Biomedical Engineering}{Teaching Assistant, Bioengineering Thermodynamics Course}{St. Louis, MO}{}{Facilitated examination review sessions, graded problem sets and exams}
+%   \cventry{Aug. 2014--Dec. 2014}{Washington University Department of Biomedical Engineering}{Teaching Assistant, Bioengineering Thermodynamics Course}{St. Louis, MO}{}{Facilitated examination review sessions, graded problem sets and exams}
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
@@ -384,13 +399,14 @@
 
 \section{Other Creative Activity}
 \cventry{}{University of Kentucky Department of Computer Science}{Machine Learning Final Project}{\normalfont{\textit{2017--2018}}}{}{For the Special Topics in Artificial Intelligence course. Implemented an active-learning based software tool in for training a machine learning model to grade diabetic retinopathy from fundus images}
-\cventry{}{Washington University Department of Biomedical Engineering}{Senior Design Project}{\normalfont{\textit{2014--2015}}}{}{Developed and presented software to evaluate reading patterns via eye-tracking hardware. View the final report: \href{http://goo.gl/1Il2Tm}{http://goo.gl/1Il2Tm}}
-\cventry{}{Washington University in St. Louis}{Relay For Life Event Check-In Page}{\normalfont{\textit{2014--2015}}}{}{Final creative project for Rapid Prototyping course, using Javascript, jQuery, PHP, MySQL, and Bootstrap
-\begin{itemize}
-  \item Project page: \href{http://parasvora.com/relay-checkin/}{http://parasvora.com/relay-checkin/}
-  \item Currently being used to streamline registration and check-in at multiple large events
-\end{itemize}
-}
+% \cventry{}{Washington University Department of Biomedical Engineering}{Senior Design Project}{\normalfont{\textit{2014--2015}}}{}{Developed and presented software to evaluate reading patterns via eye-tracking hardware. View the final report: \href{http://goo.gl/1Il2Tm}{http://goo.gl/1Il2Tm}}
+\cventry{}{Entspire, LLC}{Orijinz Words \& Phrases}{\normalfont{\textit{2018--Present}}}{}{Developed an iOS and Android game based on the original card game. Read the origin and try to guess the matching word or phrase. View the game here: \href{https://apps.apple.com/us/app/orijinz/id1481023099}{https://apps.apple.com/us/app/orijinz/id1481023099}}
+% \cventry{}{Washington University in St. Louis}{Relay For Life Event Check-In Page}{\normalfont{\textit{2014--2015}}}{}{Final creative project for Rapid Prototyping course, using Javascript, jQuery, PHP, MySQL, and Bootstrap
+% \begin{itemize}
+%   \item Project page: \href{http://parasvora.com/relay-checkin/}{http://parasvora.com/relay-checkin/}
+%   \item Currently being used to streamline registration and check-in at multiple large events
+% \end{itemize}
+% }
 
 
 \section{Interests}
